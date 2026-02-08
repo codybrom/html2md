@@ -4,6 +4,7 @@
 # Personal
 .env
 .claude/settings.local.json
+.markdownlintignore
 
 # Junk
 temp/

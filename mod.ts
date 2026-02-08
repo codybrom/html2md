@@ -16,8 +16,8 @@
 
 import type { MdOptions } from "./src/config.ts";
 import { DEFAULT_OPTIONS } from "./src/config.ts";
-import { parseHtml } from "./src/parse.ts";
 import { convert } from "./src/convert.ts";
+import { parseHtml } from "./src/parse.ts";
 
 export { DEFAULT_OPTIONS } from "./src/config.ts";
 /** @deprecated Use MdOptions instead. */
