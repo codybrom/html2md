@@ -1,0 +1,14 @@
+# Deno
+.deno/
+
+# Personal
+.env
+.claude/settings.local.json
+
+# Junk
+temp/
+.DS_Store
+tmp
+
+# Logs
+*.log
