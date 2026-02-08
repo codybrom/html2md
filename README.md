@@ -1,8 +1,13 @@
 # @codybrom/html2md
 
+[![JSR](https://jsr.io/badges/@codybrom/html2md)](https://jsr.io/@codybrom/html2md)
+[![JSR Score](https://jsr.io/badges/@codybrom/html2md/score)](https://jsr.io/@codybrom/html2md)
+
 Fast HTML-to-Markdown converter for Deno. Single function call, no config
 required, handles the stuff you'd expect (tables, code blocks, nested lists,
-reference links, etc.).
+reference links, etc.). Bare `<pre>` tags (without a `<code>` child) are fenced
+just like `<pre><code>`, with language hints extracted from the `class`
+attribute.
 
 ## Install
 

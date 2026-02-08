@@ -46,10 +46,18 @@ tracks list nesting.
 
 ## Tests
 
-108 tests in `tests/`, organized by feature (`inline_test.ts`, `block_test.ts`,
+112 tests in `tests/`, organized by feature (`inline_test.ts`, `block_test.ts`,
 `link_test.ts`, `list_test.ts`, `table_test.ts`, `codeblock_test.ts`,
 `options_test.ts`, `edge_cases_test.ts`). All imports go through `mod.ts` so
 internal refactors don't touch tests.
+
+## Changelog
+
+Every user-visible change must be documented in `CHANGELOG.md`. Use an
+`## Unreleased` section at the top for changes not yet tagged to a release. When
+bumping the version, rename `Unreleased` to the new version number. Follow
+semver: **patch** for bug fixes, **minor** for new features, **major** for
+breaking changes.
 
 ## Gotchas
 

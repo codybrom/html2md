@@ -62,3 +62,31 @@ Deno.test("code block - block elements no extra newlines", () => {
     "```\nab\n```",
   );
 });
+
+Deno.test("bare pre - fenced by default", () => {
+  assertEquals(
+    htmlToMd("<pre>bare code</pre>"),
+    "```\nbare code\n```",
+  );
+});
+
+Deno.test("bare pre - extracts language from class", () => {
+  assertEquals(
+    htmlToMd('<pre class="lang-json">{"a":1}</pre>'),
+    "```json\n" + '{"a":1}' + "\n```",
+  );
+});
+
+Deno.test("bare pre - extracts language from multiple classes", () => {
+  assertEquals(
+    htmlToMd('<pre class="prettyprint lang-json">{"a":1}</pre>'),
+    "```json\n" + '{"a":1}' + "\n```",
+  );
+});
+
+Deno.test("bare pre - indented style", () => {
+  assertEquals(
+    htmlToMd("text<pre>bare code</pre>text", { codeBlockStyle: "indented" }),
+    "text\n\n    bare code\n\ntext",
+  );
+});

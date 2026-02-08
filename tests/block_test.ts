@@ -58,13 +58,13 @@ Deno.test("blockquote - nested", () => {
 Deno.test("pre - preserves whitespace", () => {
   const html = "text<pre>  code\n    indented\n</pre>text";
   const result = htmlToMd(html);
-  assertEquals(result, "text\n\n  code\n    indented\n\ntext");
+  assertEquals(result, "text\n\n```\n  code\n    indented\n\n```\n\ntext");
 });
 
 Deno.test("pre - no escaping", () => {
   assertEquals(
     htmlToMd("<pre>*not bold* [not link]</pre>"),
-    "*not bold* [not link]",
+    "```\n*not bold* [not link]\n```",
   );
 });
 

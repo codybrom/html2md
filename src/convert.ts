@@ -237,10 +237,14 @@ function preToMd(
     }
     return [opts.codeFence + lang + "\n" + body + "\n" + opts.codeFence, 2];
   }
-  // Plain <pre> — preserve whitespace, no escaping
+  // Bare <pre> without <code> — fence or indent like <pre><code>
   const rawCtx: Ctx = { ...ctx, raw: true, literalWs: true };
-  const c = visitChildren(el, opts, rawCtx, refs);
-  return [c, 2];
+  const body = visitChildren(el, opts, rawCtx, refs);
+  if (opts.codeBlockStyle === "indented") {
+    return [body.replace(/^/gm, "    "), 2];
+  }
+  const lang = langFromClass(el);
+  return [opts.codeFence + lang + "\n" + body + "\n" + opts.codeFence, 2];
 }
 
 function linkToMd(
